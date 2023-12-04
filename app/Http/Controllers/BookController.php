@@ -25,7 +25,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.create', [
+            'title' => 'Books'
+        ]);
     }
 
     /**
@@ -33,7 +35,11 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $books = $request->all();
+
+        Book::create($books);
+
+        return redirect()->route('books.index');
     }
 
     /**
