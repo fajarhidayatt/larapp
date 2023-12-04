@@ -25,12 +25,16 @@
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->publisher }}</td>
                     <td>{{ $book->quantity }}</td>
-                    <td>
+                    <td class="d-flex">
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="{{ route('books.show', $book->id) }}" class="btn btn-success">Show</a>
                             <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning">Edit</a>
-                            <button type="button" class="btn btn-danger">Delete</button>
                         </div>
+                        <form action="{{ route('books.destroy', $book->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @empty
