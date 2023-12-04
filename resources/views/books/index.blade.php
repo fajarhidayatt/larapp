@@ -20,14 +20,14 @@
         <tbody>
             @forelse($books as $book)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Programming JS</td>
-                    <td>Gramedia</td>
-                    <td>10</td>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $book->title }}</td>
+                    <td>{{ $book->author }}</td>
+                    <td>{{ $book->publisher }}</td>
+                    <td>{{ $book->quantity }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-success">Show</button>
+                            <a href="{{ route('books.show', $book->id) }}" class="btn btn-success">Show</a>
                             <button type="button" class="btn btn-warning">Edit</button>
                             <button type="button" class="btn btn-danger">Delete</button>
                         </div>
