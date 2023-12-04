@@ -60,7 +60,12 @@ class BookController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $book = Book::find($id);
+
+        return view('books.edit', [
+            'title' => 'Books',
+            'book' => $book,
+        ]);
     }
 
     /**
@@ -68,7 +73,12 @@ class BookController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        $book = Book::find($id);
+
+        $book->update($data);
+
+        return redirect()->route('books.index');
     }
 
     /**

@@ -28,7 +28,7 @@
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="{{ route('books.show', $book->id) }}" class="btn btn-success">Show</a>
-                            <button type="button" class="btn btn-warning">Edit</button>
+                            <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning">Edit</a>
                             <button type="button" class="btn btn-danger">Delete</button>
                         </div>
                     </td>
